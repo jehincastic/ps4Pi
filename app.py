@@ -1,8 +1,8 @@
 from pyPS4Controller.controller import Controller
-from gpiozero import LED
+from gpiozero import PWMLED
 from time import sleep
 
-led = LED(4)
+led = PWMLED(4)
 brightnessValue = 1
 maxValue = 32767
 
