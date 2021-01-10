@@ -14,8 +14,7 @@ class MyController(Controller):
 		led.value = brightnessValue
 
 	def on_circle_press(self):
-		brightnessValue = 0
-		led.value = brightnessValue
+		led.value = 0
 
 	def on_L3_up(self, value):
 		brightnessValue = abs(value) / maxValue
