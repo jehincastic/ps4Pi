@@ -45,7 +45,7 @@ class MyController(Controller):
 			index = 0
 		else:
 			index += 1
-		print(f"{} is selected.", components[index])
+		print(f"{components[index]} is selected.")
 
 	def on_L1_press(self):
 		global index
@@ -53,7 +53,7 @@ class MyController(Controller):
 			index = len(components) - 1
 		else:
 			index -= 1	
-		print(f"{} is selected.", components[index])
+		print(f"{components[index]} is selected.")
 
 controller = MyController(interface = "/dev/input/js0", connecting_using_ds4drv = False)
 controller.listen()
