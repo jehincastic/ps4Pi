@@ -1,5 +1,4 @@
-from pyPS4Controller.controller
-import Controller
+from pyPS4Controller.controller import Controller
 from gpiozero
 import LED
 from time
