@@ -15,13 +15,13 @@ class MyController(Controller):
 		if index == 0:
 			led.value = brightnessValue
 		else:
-			print(f"Plese Change to LED by using R1 or L1. {} is selected now.", components[index])
+			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
 
 	def on_circle_press(self):
 		if index == 0:
 			led.value = 0
 		else:
-			print(f"Plese Change to LED by using R1 or L1. {} is selected now.", components[index])
+			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
 
 	def on_up_arrow_press(self):
 		if index == 0:
@@ -29,7 +29,7 @@ class MyController(Controller):
 			brightnessValue = min((brightnessValue + 0.1), 1)
 			led.value = brightnessValue
 		else:
-			print(f"Plese Change to LED by using R1 or L1. {} is selected now.", components[index])
+			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
 
 	def on_down_arrow_press(self):
 		if index == 0:
@@ -37,7 +37,7 @@ class MyController(Controller):
 			brightnessValue = max((brightnessValue - 0.1), 0)
 			led.value = brightnessValue
 		else:
-			print(f"Plese Change to LED by using R1 or L1. {} is selected now.", components[index])
+			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
 
 	def on_R1_press(self):
 		global index
