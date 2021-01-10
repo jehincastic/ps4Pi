@@ -15,11 +15,11 @@ class MyController(Controller):
 	def on_circle_press(self):
 		led.value = 0
 
-	def on_up_arrow_press(self, value):
+	def on_up_arrow_press(self):
 		brightnessValue = min((brightnessValue + 0.1), 1)
 		led.value = brightnessValue
 
-	def on_down_arrow_press(self, value):
+	def on_down_arrow_press(self):
 		brightnessValue = max((brightnessValue - 0.1), 0)
 		led.value = brightnessValue
 
