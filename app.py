@@ -34,7 +34,7 @@ class MyController(Controller):
 			brightnessValue = min((brightnessValue + 0.1), 1)
 			led.value = brightnessValue
 		else:
-			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
+			camera.vflip = True
 
 	def on_down_arrow_press(self):
 		if index == 0:
@@ -42,7 +42,19 @@ class MyController(Controller):
 			brightnessValue = max((brightnessValue - 0.1), 0)
 			led.value = brightnessValue
 		else:
-			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
+			camera.vflip = True
+
+	def on_right_arrow_press(self):
+		if index == 0:
+			print(f"Plese Change to CAMERA by using R1 or L1. {components[index]} is selected now.")
+		else:
+			camera.hflip = True
+
+	def on_left_arrow_press(self):
+		if index == 0:
+			print(f"Plese Change to CAMERA by using R1 or L1. {components[index]} is selected now.")
+		else:
+			camera.hflip = True
 
 	def on_R1_press(self):
 		global index
