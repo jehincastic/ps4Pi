@@ -10,6 +10,7 @@ brightnessValue = 1
 components = ["LED", "Camera"]
 index = 0
 camera = PiCamera()
+camera.resolution = (2560,1936)
 getMilliSeconds = lambda: int(round(time() * 1000))
 
 class MyController(Controller):
