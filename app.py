@@ -1,11 +1,16 @@
 from pyPS4Controller.controller import Controller
 from gpiozero import PWMLED
-from time import sleep
+from picamera import PiCamera
+from time import sleep, time
+import signal
+import sys
 
 led = PWMLED(4)
 brightnessValue = 1
 components = ["LED", "Camera"]
 index = 0
+camera = PiCamera()
+getMilliSeconds = lambda: int(round(time() * 1000))
 
 class MyController(Controller):
 	def __init__(self, ** kwargs):
@@ -14,8 +19,8 @@ class MyController(Controller):
 	def on_x_press(self):
 		if index == 0:
 			led.value = brightnessValue
-		else:
-			print(f"Plese Change to LED by using R1 or L1. {components[index]} is selected now.")
+		elif index == 1:
+			camera.capture(f"{getMilliSeconds()}.jpg")
 
 	def on_circle_press(self):
 		if index == 0:
@@ -55,5 +60,10 @@ class MyController(Controller):
 			index -= 1	
 		print(f"{components[index]} is selected.")
 
+def signal_handler(sig, frame):
+	camera.close()
+	sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 controller = MyController(interface = "/dev/input/js0", connecting_using_ds4drv = False)
 controller.listen()
